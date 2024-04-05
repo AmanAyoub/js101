@@ -1,6 +1,6 @@
 let message = require("./calculator_messages.json");
 let readline = require("readline-sync");
-const LANGUAGE = 'en';
+const LANGUAGE = 'it';
 
 function messages(lang, msg) {
   return message[lang][msg];
@@ -59,9 +59,17 @@ while (true) {
 
   prompt("anotherOperation");
   let answer = readline.question();
-  while (answer[0].toLowerCase() !== 'y' && answer[0].toLowerCase() !== 'n') {
-    prompt("yesOrNo");
-    answer = readline.question();
+
+  if (LANGUAGE === 'en') {
+    while (answer[0].toLowerCase() !== 'y' && answer[0].toLowerCase() !== 'n') {
+      prompt("yesOrNo");
+      answer = readline.question();
+    }
+  } else if (LANGUAGE === 'it') {
+    while (answer[0].toLowerCase() !== 's' && answer[0].toLowerCase() !== 'n') {
+      prompt("yesOrNo");
+      answer = readline.question();
+    }
   }
 
   if (answer[0].toLowerCase() === 'n') break;
