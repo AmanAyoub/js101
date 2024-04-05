@@ -1,4 +1,4 @@
-// Log all odd numbers from 1 to 99, to the console, with each number on a separate line.
+// Log all odd numbers from 1 to 99, with each number on a separate line.
 
 // Using a for loop:
 for (let number = 1; number <= 99; number += 2) {
