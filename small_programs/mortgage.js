@@ -17,8 +17,8 @@ while (true) {
   prompt('---------------------------------');
 
   prompt(MESSAGE.amount);
-
   let amount = readline.question();
+
   while (isInvalidNumber(amount)) {
     prompt(MESSAGE.invalidNumber);
     amount = readline.question();
@@ -53,6 +53,7 @@ while (true) {
 
   prompt(MESSAGE.anotherCalculation);
   let answer = readline.question().toLowerCase();
+  
   while (answer[0] !== 'n' && answer[0] !== 'y') {
     prompt(MESSAGE.yesOrNo);
     answer = readline.question().toLowerCase();
