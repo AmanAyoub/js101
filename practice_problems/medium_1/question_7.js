@@ -1,4 +1,4 @@
-// Question:
+// Question: 
 // What is the output of the following code?
 let answer = 42;
 
