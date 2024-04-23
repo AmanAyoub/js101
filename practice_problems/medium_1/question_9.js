@@ -1,4 +1,4 @@
-// Question:
+// Question: 
 /*
 Function and method calls can take expressions as arguments.
 Suppose we define a function named rps as follows,
