@@ -1,3 +1,4 @@
+// Question:
 function foo(param = "no") {
   return "yes";
 }
