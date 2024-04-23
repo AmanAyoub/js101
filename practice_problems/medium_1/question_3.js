@@ -1,4 +1,4 @@
-// Question:
+// Question: 
 function factors(number) {
   let divisor = number;
   let factors = [];
