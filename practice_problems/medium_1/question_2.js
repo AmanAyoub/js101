@@ -1,4 +1,4 @@
-// Question:
+// Question: 
 // Starting with the string:
 let munstersDescription = "The Munsters are creepy and spooky.";
 
