@@ -1,3 +1,4 @@
+// Question:
 let munsters = {
   Herman: { age: 32, gender: "male" },
   Lily: { age: 30, gender: "female" },
@@ -17,8 +18,7 @@ function messWithDemographics(demoObject) {
 
 messWithDemographics(munsters);
 
-
-console.log(munsters);
+// Did the family's data get ransacked? Why or why not?
 
 // Solution:
 // This will log the mutated object, the function `messWithDemographics()` does change the object referenced by munsters.
