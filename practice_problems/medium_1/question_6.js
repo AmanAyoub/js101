@@ -1,4 +1,4 @@
-// Question:
+// Question: 
 // What do you think the following code will output?
 let nanArray = [NaN];
 
