@@ -1,6 +1,6 @@
 let message = require("./calculator_messages.json");
 let readline = require("readline-sync");
-const LANGUAGE = 'it';
+const LANGUAGE = 'en';
 
 function messages(lang, msg) {
   return message[lang][msg];
@@ -15,23 +15,19 @@ function invalidNumber(number) {
   return number.trimStart() === '' || Number.isNaN(Number(number));
 }
 
-while (true) {
-  prompt("firstNumber");
-  let number1 = readline.question();
+function getNumber(enterNumMessage) {
+  prompt(enterNumMessage);
+  let number = readline.question();
 
-  while (invalidNumber(number1)) {
+  while (invalidNumber(number)) {
     prompt("incorrectNumber");
-    number1 = readline.question();
+    number = readline.question();
   }
 
-  prompt("secondNumber");
-  let number2 = readline.question();
+  return number;
+}
 
-  while (invalidNumber(number2)) {
-    prompt("incorrectNumber");
-    number2 = readline.question();
-  }
-
+function getOperation() {
   prompt("operation");
   let operation = readline.question();
 
@@ -40,28 +36,38 @@ while (true) {
     operation = readline.question();
   }
 
-  let output;
+  return operation;
+}
+
+function performCalculation(operation, number1, number2) {
+  let result;
   switch (operation) {
     case "1":
-      output = Number(number1) + Number(number2);
+      result = Number(number1) + Number(number2);
       break;
     case "2":
-      output = Number(number1) - Number(number2);
+      result = Number(number1) - Number(number2);
       break;
     case "3":
-      output = Number(number1) * Number(number2);
+      result = Number(number1) * Number(number2);
       break;
     case "4":
-      output = Number(number1) / Number(number2);
+      result = Number(number1) / Number(number2);
       break;
   }
-  console.log('=> ' + output); //
 
+  if (result === Infinity || -Infinity) {
+    result = "Sorry, the calculation of these numbers can't be done."
+  }
+  return result;
+}
+
+function performNewCalculation() {
   prompt("anotherOperation");
   let answer = readline.question();
 
   if (LANGUAGE === 'en') {
-    while (answer[0].toLowerCase() !== 'y' && answer[0].toLowerCase() !== 'n') {
+    while (answer.toLowerCase() !== "yes" && answer.toLowerCase() !== "no" && answer.toLowerCase() !== 'y' && answer.toLowerCase() !== 'n') {
       prompt("yesOrNo");
       answer = readline.question();
     }
@@ -72,5 +78,18 @@ while (true) {
     }
   }
 
-  if (answer[0].toLowerCase() === 'n') break;
+  return answer;
+}
+
+while (true) {
+  let number1 = getNumber("firstNumber");
+
+  let number2 = getNumber("secondNumber");
+  let operation = getOperation();
+
+  let output = performCalculation(operation, number1, number2);
+  console.log("=>" + output)
+  let calculateAgain = performNewCalculation();
+
+  if (calculateAgain[0].toLowerCase() === 'n') break;
 }
