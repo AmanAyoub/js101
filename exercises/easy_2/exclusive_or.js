@@ -1,4 +1,4 @@
-// write a function named xor that takes two arguments,
+// write a function named xor that takes two arguments, 
 // and returns true if exactly one of its arguments is truthy, false otherwise.
 
 function xor(value1, value2) {
