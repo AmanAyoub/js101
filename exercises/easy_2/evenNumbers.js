@@ -3,3 +3,5 @@
 for (let num = 0; num < 99; num += 2) {
   console.log(num);
 }
+
+console.log("Hello");
