@@ -5,14 +5,12 @@ and the other end at the upper-right.
 */
 
 function triangle(number) {
-  let row = "";
+  for (let spaces = number - 1; spaces; spaces--) {
+    let row = " ".repeat(spaces);
 
-  for (let counter = number - 1; counter; counter--) {
-    row = " ".repeat(counter);
     while (row.length < number) {
       row += "*";
     }
-
     console.log(row);
   }
 }
